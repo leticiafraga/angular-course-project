@@ -8,17 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'course-project';
 
-  toggleView = true;
+  // toggleView = true;
 
-  onNavigate(option: string){
+  // onNavigate(option: string){
 
-    if (option ==="recipe") {
-      this.toggleView = true;
-    }
-    else {
-      this.toggleView = false;
-    }
-    console.log(this.toggleView);
-
-  }
+  //   if (option ==="recipe") {
+  //     this.toggleView = true;
+  //   }
+  //   else {
+  //     this.toggleView = false;
+  //   }
+  //   console.log(this.toggleView);
+  // }
 }
