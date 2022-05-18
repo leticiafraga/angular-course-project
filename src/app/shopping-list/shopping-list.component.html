@@ -2,8 +2,9 @@
     <div class="col-xs-10">
         <app-shopping-edit></app-shopping-edit>
         <hr>
+        <h4>Click an item to edit</h4>
         <ul class="list-group">
-            <a class="list-group-item" *ngFor="let ing of ingredients">
+            <a class="list-group-item" *ngFor="let ing of ingredients; let id = index" (click)="editItem(id)">
                 {{ ing.name }} ({{ ing.amount }})
             </a>
         </ul>
