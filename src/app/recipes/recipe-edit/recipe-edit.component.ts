@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../recipes.service';
@@ -17,7 +18,7 @@ export class RecipeEditComponent implements OnInit {
   // reactive form
   recipeForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private rs: RecipesService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private rs: RecipesService, private router: Router, private dss: DataStorageService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -74,6 +75,8 @@ export class RecipeEditComponent implements OnInit {
       const newId = this.rs.addRecipe(newRecipe);
       this.router.navigate(['../', newId], { relativeTo: this.route });
     }
+    this.dss.storeRecipes();
+
   }
 
   get controls() {

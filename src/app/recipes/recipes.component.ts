@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service';
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 
@@ -11,10 +12,12 @@ export class RecipesComponent implements OnInit {
 
   selectedRecipe: Recipe;
 
-  constructor() { }
+  constructor(private dss: DataStorageService) { }
   // constructor(private rs: RecipesService) { }
 
   ngOnInit(): void {
+
+    this.dss.fetchRecipes();
 
     // not necessary with routing    
     // this.rs.recipeSelected.subscribe((recipe:Recipe) => {
