@@ -70,11 +70,10 @@ export class RecipeEditComponent implements OnInit {
 
     if (this.editMode) {
       this.rs.updateRecipe(this.id, newRecipe);
-      this.router.navigate(['../'], { relativeTo: this.route });
     } else {
       const newId = this.rs.addRecipe(newRecipe);
-      this.router.navigate(['../', newId], { relativeTo: this.route });
     }
+    this.router.navigate(['/recipes']);
     this.dss.storeRecipes();
 
   }
