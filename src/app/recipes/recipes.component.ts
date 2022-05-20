@@ -17,8 +17,6 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dss.fetchRecipes();
-
     // not necessary with routing    
     // this.rs.recipeSelected.subscribe((recipe:Recipe) => {
     //   this.selectedRecipe = recipe;
