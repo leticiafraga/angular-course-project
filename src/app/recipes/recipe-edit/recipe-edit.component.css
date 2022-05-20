@@ -1,0 +1,7 @@
+.mt-3 {
+    margin-top: 0.8rem;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

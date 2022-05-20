@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
@@ -9,8 +10,9 @@ import { Recipe } from './recipe.model';
 export class RecipesService {
 
   // recipeSelected = new EventEmitter<Recipe>();
+  recipesChanged = new Subject<Recipe[]>();
 
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe("Test", "First recipe",
       "https://www.cozinhandopara2ou1.com/wp-content/uploads/2017/12/PeixinhoDaHorta_CozinhandoPara2ou1.jpg",
       [
@@ -36,5 +38,25 @@ export class RecipesService {
 
   sendToShoppingList(ing: Ingredient[]) {
     this.sls.addIngredients(ing);
+  }
+
+  addRecipe(recipe: Recipe):number {
+    this.recipes.push(recipe);
+    this.onRecipesChanged();
+    return this.recipes.length - 1;
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.onRecipesChanged();
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.onRecipesChanged();
+  }
+
+  onRecipesChanged() {
+    this.recipesChanged.next(this.getRecipes());
   }
 }

@@ -1,15 +1,15 @@
 .col-img {
-    width: 90%;
-    height: 400px;
     overflow: hidden;
     margin-bottom: 15px;
+    height: 400px;
+    max-width: 90%;
 }
 
 img {
-    width: 100%;
     margin: 0;
     position: absolute;
-    top: -50%;
-    
+    top: -25%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
