@@ -45,3 +45,4 @@ Thumbs.db
 .github/*
 firebase-debug.log
 .firebaserc
+firebase.json
