@@ -10,7 +10,7 @@ import { RecipesStartComponent } from '../recipes-start/recipes-start.component'
 
 const routes:Routes = [
   {
-    path: 'recipes', component: RecipesComponent,
+    path: '', component: RecipesComponent,
     canActivate: [AuthGuard],
     children: [
       { path: '', component: RecipesStartComponent },
